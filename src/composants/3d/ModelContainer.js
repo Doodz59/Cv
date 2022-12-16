@@ -18,7 +18,7 @@ export default function ModelContainer() {
   return (
     <>
           
-          <Canvas onClick={()=>{setAction('talk')}} position={[0, 0, 0]} style={{ width: '100%', height: '100%' }}> 
+          <Canvas onClick={()=>{setAction('talk')}}  style={{ width: '100%', height: '100%' }}> 
       <mesh > 
       <OrbitControls minPolarAngle={Math.PI / 3} maxPolarAngle={Math.PI / 3} minDistance={10} maxDistance={25} minAzimuthAngle={-Math.PI / 2} maxAzimuthAngle={Math.PI / 2}/>
       <directionalLight intensity={0.5} />
