@@ -1,6 +1,7 @@
 .App{
   display: flex;
-  height: 500px;
+  height: 1500px;
   background-color: #0f0e17;
+  margin-top: 500px;
   
 }

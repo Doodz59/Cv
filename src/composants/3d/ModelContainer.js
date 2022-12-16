@@ -4,11 +4,12 @@ import { Environment, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Suspense, useState } from "react";
 import {Model} from './Final'
+import { Office } from "./Office";
 import { PerspectiveCamera } from '@react-three/drei'
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import './ModelContainer.css';
-import Profil from "../profil/Profil";
+
 
 
 export default function ModelContainer() {
@@ -16,23 +17,23 @@ export default function ModelContainer() {
 
   return (
     <>
-          <Profil/>
-    <Canvas onClick={()=>{setAction('talk')}}> 
+          
+          <Canvas onClick={()=>{setAction('talk')}} position={[0, 0, 0]} style={{ width: '100%', height: '100%' }}> 
       <mesh > 
-      <OrbitControls />
+      <OrbitControls minPolarAngle={Math.PI / 3} maxPolarAngle={Math.PI / 3} minDistance={10} maxDistance={25} minAzimuthAngle={-Math.PI / 2} maxAzimuthAngle={Math.PI / 2}/>
       <directionalLight intensity={0.5} />
       <ambientLight intensity={0.3} />
       <Suspense fallback={null}>
-        
-      <Model action={action} />
+      <group scale={[2, 2, 2]} position={[0, 0.25, 3]}>
+      <Model action={action}/>
+</group>
 
+<Office/>
       </Suspense>
       <Environment preset="sunset" />
       </mesh>
     </Canvas>
-    <div className="controls">
-      
-    </div>
+    
     </>
   );
 }
